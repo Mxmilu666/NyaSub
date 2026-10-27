@@ -12,7 +12,7 @@ ghcr.io/<owner>/<repo>:sha-<commit>
 ghcr.io/<owner>/<repo>:<version>
 ```
 
-`linux/amd64` and `linux/arm64` are built from the same tag. Docker selects the matching architecture automatically.
+`linux/amd64` and `linux/arm64` are built on separate native runners (`ubuntu-24.04` and `ubuntu-24.04-arm`) and merged into one manifest. The free arm64 runner label is available to public repositories; for a private repository, replace `ubuntu-24.04-arm` with a self-hosted arm64 runner label.
 
 The package is private by default. Either make the GHCR package public in GitHub package settings, or authenticate before pulling:
 
