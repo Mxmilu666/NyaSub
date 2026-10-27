@@ -1,0 +1,30 @@
+services:
+  nyasub:
+    build:
+      context: .
+      args:
+        VERSION: ${NYASUB_VERSION:-dev}
+    image: ${NYASUB_IMAGE:-nyasub:latest}
+    container_name: nyasub
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    environment:
+      APP_LISTEN: 0.0.0.0:8080
+      APP_BASE_URL: ${APP_BASE_URL:-http://localhost:8080}
+      APP_DATA_DIR: /data
+      APP_SESSION_SECRET: ${APP_SESSION_SECRET:-}
+      APP_LOG_LEVEL: ${APP_LOG_LEVEL:-info}
+      APP_TRUSTED_PROXIES: ${APP_TRUSTED_PROXIES:-}
+      TZ: ${TZ:-UTC}
+    volumes:
+      - nyasub-data:/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  nyasub-data:

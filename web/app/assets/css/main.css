@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root {
+  --ui-radius: 0.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-neutral-50 text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-100;
+}
+
+::selection {
+  @apply bg-pink-500/25;
+}
+
+.page {
+  @apply mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8;
+}
+
+.data-table {
+  @apply w-full min-w-[720px] border-separate border-spacing-0 text-sm;
+}
+
+.data-table thead th {
+  @apply border-b border-neutral-200 px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:border-neutral-800 dark:text-neutral-400;
+}
+
+.data-table tbody td {
+  @apply border-b border-neutral-100 px-3 py-3 align-middle dark:border-neutral-900;
+}
+
+.data-table tbody tr:hover {
+  @apply bg-neutral-50/80 dark:bg-neutral-900/50;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.yaml-preview {
+  @apply max-h-[60vh] overflow-auto rounded-lg border border-neutral-200 bg-neutral-950 p-4 text-xs leading-5 text-neutral-100 dark:border-neutral-800;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  white-space: pre;
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+}

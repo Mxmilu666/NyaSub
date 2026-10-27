@@ -1,0 +1,24 @@
+# backend
+backend/data/
+backend/nyasub
+backend/*.db
+backend/*.db-shm
+backend/*.db-wal
+backend/coverage.out
+
+# frontend
+web/node_modules/
+web/.nuxt/
+web/.output/
+web/dist/
+web/.data/
+web/.env
+
+# local
+data/
+.env
+*.log
+.DS_Store
+
+# generated frontend symlink
+web/dist
